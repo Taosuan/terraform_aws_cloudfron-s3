@@ -8,7 +8,8 @@ provider "aws" {
 
 # S3 Bucket
 resource "aws_s3_bucket" "site" {
-  bucket = "taosuan-static-site-20260401"
+  bucket = ""
+  //一意となる任意のバケット名
 }
 
 # パブリックアクセス完全遮断
@@ -29,9 +30,7 @@ resource "aws_cloudfront_origin_access_control" "oac" {
   signing_protocol                  = "sigv4"
 }
 
-# -------------------
 # CloudFront
-# -------------------
 resource "aws_cloudfront_distribution" "cdn" {
 
   origin {
